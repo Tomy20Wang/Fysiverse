@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fysiverse: Towards Physics-Grounded World Model via Enforcing Causal Physical Consistency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><img src="img/glass.png" alt="icon" style="width: 8%;">&nbspFysiverse: Towards Physics-Grounded World Model via Enforcing Causal Physical Consistency</h1>
+    </header>
+
+    <section class="video-carousel">
+        <div class="carousel-container">
+            <button class="prev-btn" onclick="prevVideo()">◀</button>
+            <div class="video-wrapper">
+                <video id="video-player" controls autoplay muted loop>
+                    <source src="vid/sec1/bear_bounce_16.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <button class="next-btn" onclick="nextVideo()">▶</button>
+        </div>
+
+        <div class="dots" id="dots-container"></div>
+    </section>
+
+    <section class="abstract">
+        <h2>Abstract</h2>
+        <p>
+            World models are promising for embodied intelligence, but existing methods still struggle to maintain physical consistency in generated videos.
+            A practical direction is to combine physics simulation with video generation, yet current pipelines remain limited by unreliable physical parameter estimation and weak physical conditioning.
+            We propose Fysiverse, a physics-grounded world model that addresses these bottlenecks through a unified real-to-sim and sim-to-real pipeline.
+            For the real-to-sim stage, we introduce PGReason, which grounds material parameter estimation by retrieving validated material properties from a retrieval-augmented database and analyzing surface reflectance for friction estimation, providing reliable inputs for physics simulation.
+            For the sim-to-real stage, we present PGConds, which transforms simulated dynamics into instance masks, depth maps, and tracking cues to provide video diffusion models with richer constraints on object interactions, spatial structure, and motion.
+            Extensive quantitative and qualitative experimental results indicate that Fysiverse outperforms existing approaches in both visual fidelity and physical consistency.
+        </p>
+    </section>
+
+    <!-- Pipeline Section with Caption -->
+    <section class="pipeline">
+        <img src="img/pipeline.jpg" alt="PhysPoints Framework Pipeline" style="max-width: 60%; height: auto; display: block; margin: 0 auto;">
+        <p class="pipeline_caption">Fysiverse Pipeline</p>
+    </section>
+
+    <!-- Material & Collision Section -->
+    <section class="material-section">
+        <h2>Different Types of Material !</h2>
+
+        <div class="button-group">
+            <button class="mat-btn" data-vid="rigid">Rigid</button>
+            <button class="mat-btn" data-vid="elastic">Elastic</button>
+            <button class="mat-btn" data-vid="plastic">Plastic</button>
+            <button class="mat-btn" data-vid="fluid">Fluid</button>
+            <button class="mat-btn" data-vid="sand">Sand</button>
+            <button class="mat-btn" data-vid="lava">Lava</button>
+        </div>
+
+        <div class="material-video-container">
+            <video id="material-video-player" controls width="720" height="480">
+                <source src="vid/sec2/bunny_rigid_16.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Direction + Speed Control Wrapper -->
+    <div class="controls-wrapper">
+        <!-- Direction Control (NEW) -->
+        <section class="direction-control">
+            <h2>Bounce Bear to Different Directions !</h2>
+            <div class="direction-container">
+                <canvas id="direction-canvas" width="720" height="480"></canvas>
+                <video id="direction-video-player" controls width="720" height="480" style="display: none;">
+                    <source src="vid/sec4/bear_0_16.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <!-- Speed Control (EXISTING) -->
+        <section class="speed-control"style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+            <h2>Speed Up and Knock The Obstacle Out Of The Way !</h2>
+            
+            <div class="speed-container">
+                <div class="speed-video-container">
+                    <video id="speed-video-player" controls width="720" height="480">
+                        <source src="vid/sec4/speed_1_16.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="vertical-slider-wrapper">
+                    <input type="range" id="intensity-slider" min="1" max="5" value="1" orient="vertical">
+                    <span id="intensity-value">1</span>
+                </div>
+            </div>
+        </section>
+    </div>
+    <p class="warn_caption">
+        If overlap occurs, please zoom out to view.
+    </p>
+
+    <!-- New Comparison Section: PGBench vs DAVIS -->
+    <section class="comparison-section">
+        <h2>Qualitative Comparison Results on PGBench</h2>
+
+        <div class="comparison-button-group">
+        </div>
+
+        <div class="comparison-video-container">
+            <video id="comparison-video-player" controls width="1800" height="600" loop>
+                <source src="vid/sec9/shelf_domino_website.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p id="comparison-caption" class="demo-caption">
+            Text: Four cabinets are on the ground, and the first cabinet on the left falls to the right, causing the others to fall as well.
+        </p>
+    </section>
+
+    <!-- New Demo Section -->
+    <section class="demo-section">
+        <h2>Qualitative Results on WorldArean.</h2>
+
+        <div class="demo-button-group">
+        </div>
+
+        <p id="demo-text-caption" class="demo-text-caption">
+        </p>
+
+        <div class="demo-video-container">
+            <video id="demo-video-player" controls width="1200" height="400">
+                <source src="vid/sec5/open_laptop_website.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <p id="demo-caption" class="demo-caption">
+            Text: Raise the clamshell laptop with flat screen using the left arm firmly.
+        </p>
+    </section>
+
+    <!-- Ablation Study Section -->
+    <!-- <section class="ablation-section">
+        <h2>Sec. 4.4 Ablation Study: Point Map Representation</h2>
+        <div class="ablation-video-container">
+            <video id="ablation-video-player" controls width="1200" height="400" loop>
+                <source src="vid/sec6/ablation_1_16.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p class="caption">
+            Comparison between dense map and point map representations (and the density of point distribution) under misaligned conditions.
+        </p>
+    </section> -->
+
+    <!-- Ablation Study Section 2 -->
+    <section class="ablation2-section">
+        <h2>Ablation Study: Individual Contribution</h2>
+        <div class="ablation2-video-container">
+            <video id="ablation2-video-player" controls width="1200" height="400" loop>
+                <source src="vid/sec7/ablation_soccer_website.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p class="caption">
+        </p>
+    </section>
+
+    <!-- Limitation Cases Section -->
+    <section class="failure-cases-section">
+        <h2>Limitation</h2>
+
+        <div class="failure-button-group">
+            <button class="failure-btn active" data-file="car_right_down_16.mp4">
+                Case 1 - Car
+            </button>
+            <button class="failure-btn" data-file="curling_16.mp4">
+                Case 2 - Curling
+            </button>
+            <button class="failure-btn" data-file="bear_16.mp4">
+                Case 3 - Bear
+            </button>
+        </div>
+
+        <div class="failure-video-container">
+            <video id="failure-video-player" controls width="720" height="480" loop>
+                <source src="vid/sec11/car_right_down_16.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Caption -->
+        <p id="failure-caption" class="limitation-caption">
+            Since we fuse three conditioning signals that carry rich information, they occasionally interfere with the object's appearance, which leads to noticeable appearance alterations, as shown in Case 1 and Case 2. To stabilize the background and suppress camera jitter, we employ a global tracking map instead of an object-level one. However, this design conflicts with scenarios requiring dynamic background motion. In Case 3, dust particles illuminated by light rays appear frozen.
+        </p>
+    </section>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

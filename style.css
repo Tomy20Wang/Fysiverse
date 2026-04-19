@@ -1,0 +1,594 @@
+/* style.css */
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    line-height: 1.4;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Abstract Section */
+.abstract {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.abstract h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.abstract p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Pipeline Section */
+.pipeline {
+    background-color: #f9f9f9;
+    padding: 40px 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.pipeline img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); */
+}
+
+.pipeline_caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.warn_caption {
+    text-align: center;
+    font-size: 1.5rem;
+    color: red;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+/* Caption Style */
+.caption {
+    text-align: center;
+    font-size: 1rem;
+    color: black;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.limitation-caption {
+    text-align: left;
+    font-size: 1.2rem;
+    color: black;
+    margin-top: 8px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+
+/* Video Carousel */
+.video-carousel {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#video-player {
+    width: 720px;
+    height: 480px;
+    object-fit: none;
+    border-radius: 8px;
+    background-color: #000;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #007bff;
+}
+
+/* Material Section */
+.material-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.material-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.mat-btn {
+    padding: 10px 18px;
+    font-size: 1rem;
+    background-color: #e9ecef;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1 1 calc(33.333% - 12px);
+    min-width: 120px;
+}
+
+.mat-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.mat-btn.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+.material-video-container {
+    margin-top: 20px;
+}
+
+#material-video-player {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+}
+
+
+.controls-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    max-width: 1800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.direction-control,
+.speed-control {
+    flex: 1;
+    min-width: 360px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.direction-control h2,
+.speed-control h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#direction-canvas {
+    width: 720px;
+    height: 480px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: grab;
+    background-color: #f9f9f9;
+    display: block;
+    margin: 0 auto;
+}
+
+#direction-video-player {
+    width: 720px;
+    height: 480px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    display: none;
+    margin: 0 auto;
+}
+
+/* Speed Control Section Layout */
+.speed-control {
+    flex: 1;
+    min-width: 360px;
+    padding: 0 20px;
+}
+
+.speed-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.speed-video-container {
+    flex-shrink: 0;
+}
+
+#speed-video-player {
+    width: 720px;
+    height: 480px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    margin: 0 auto;
+}
+
+.vertical-slider-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 480px;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+#intensity-slider {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+    appearance: slider-vertical;
+    width: 24px;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+#intensity-value {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+}
+
+/* Demo Section */
+.demo-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.demo-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.demo-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.demo-btn {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+}
+
+.demo-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.demo-btn.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+.demo-video-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#demo-video-player {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    max-width: 100%;
+    height: auto;
+}
+
+.demo-caption {
+    font-size: 1rem;
+    color: black;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+.demo-text-caption {
+    font-size: 1.2rem;
+    color: teal;
+    margin-top: 12px;
+    font-style: italic;
+}
+
+/* Ablation Study Section */
+.ablation-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ablation-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.ablation-video-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#ablation-video-player {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Ablation Study Section 2 */
+.ablation2-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ablation2-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.ablation2-video-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#ablation2-video-player {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Comparison Section: PGBench vs DAVIS */
+.comparison-section {
+    max-width: 2400px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.comparison-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.comparison-button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.comparison-btn {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+}
+
+.comparison-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.comparison-btn.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+.comparison-video-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#comparison-video-player {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Failure Cases Section */
+.failure-cases-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.failure-cases-section h2 {
+    font-size: 1.8rem;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+.failure-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.failure-btn {
+    padding: 8px 20px;
+    font-size: 1rem;
+    background-color: #e0e0e0;
+    color: #333;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 100px;
+}
+
+.failure-btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.failure-btn.active {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+}
+
+.failure-video-container {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+}
+
+#failure-video-player {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    max-width: 100%;
+    height: auto;
+}
